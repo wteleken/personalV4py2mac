@@ -1,22 +1,16 @@
 from setuptools import setup
 
-# Para o script gerar_arquivo_novo_treino.py
-setup(
-    app=['gerar_arquivo_novo_treino.py'],
-    options={'py2app': {'packages': ['openpyxl']}},
-    setup_requires=['py2app'],
-)
+APP = ['gerar_arquivo_novo_treino.py']
+DATA_FILES = []
 
-# Para o script criar_treino.py
-setup(
-    app=['criar_treino.py'],
-    options={'py2app': {'packages': ['pandas', 'openpyxl', 'numpy', 'random']}},
-    setup_requires=['py2app'],
-)
+OPTIONS = {
+    'argv_emulation': True,
+    'packages': ['os', 'openpyxl'],
+}
 
-# Para o script unir_planilhas.py
 setup(
-    app=['unir_planilhas.py'],
-    options={'py2app': {'packages': ['openpyxl', 'pandas']}},
+    app=APP,
+    data_files=DATA_FILES,
+    options={'py2app': OPTIONS},
     setup_requires=['py2app'],
 )
